@@ -15,6 +15,10 @@ module ActiveRecord
       end
 
       class MysqlEnum < MysqlString
+        def type
+          :enum
+        end
+
         def type_cast_for_database(value)
           value_to_symbol(super(value))
         end

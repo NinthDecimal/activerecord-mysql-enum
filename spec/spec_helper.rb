@@ -21,6 +21,13 @@ def column_props(table, column)
   { :type => result["Type"], :default => result["Default"], :null => ( result["Null"] == "YES" ) }
 end
 
+def dump_schema
+  stream = StringIO.new
+  ActiveRecord::SchemaDumper.ignore_tables = []
+  ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, stream)
+  stream.string.lines.select {|l| /^\s*#/.match(l).nil? }.join
+end
+
 # Establish DB connection
 db_config = YAML::load(IO.read(File.join(root, "db", "database.yml")))
 ActiveRecord::Base.configurations = db_config

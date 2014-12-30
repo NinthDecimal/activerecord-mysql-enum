@@ -6,7 +6,20 @@ end
 
 describe 'The ENUM type' do
   describe 'schema dump' do
+    before { load_schema }
+    subject { dump_schema }
 
+    it "dumps native format" do
+      expect(subject).to match(%r{t\.enum\s+"color",\s+(:limit =>|limit:) \[:red, :blue, :green, :yellow\]})
+    end
+
+    it "dumps default option" do
+      expect(subject).to match(%r{t\.enum\s+"color",.+(:default =>|default:) :green})
+    end
+
+    it "dumps null option" do
+      expect(subject).to match(%r{t\.enum\s+"color",.+(:null =>|null:) false$})
+    end
   end
 
   describe 'schema loading' do

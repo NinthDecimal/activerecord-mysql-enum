@@ -1,0 +1,6 @@
+mysql:
+  adapter: mysql2
+  host: localhost
+  database: activerecord_mysqlenum_test
+  username: username
+  password: password

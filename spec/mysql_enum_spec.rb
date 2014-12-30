@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 class Enumeration < ActiveRecord::Base
-  # validates_columns :color, :severity, :string_field, :int_field
+
 end
 
 describe 'The ENUM type' do

@@ -1,7 +1,7 @@
 require 'rspec'
 require 'yaml'
 require 'pry'
-require 'active_record/mysql_enum'
+require 'activerecord_mysql_enum'
 
 def root
   root ||= File.expand_path(File.dirname(__FILE__))

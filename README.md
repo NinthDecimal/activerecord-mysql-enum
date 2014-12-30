@@ -1,6 +1,12 @@
 # Activerecord::Mysql::Enum
 
-TODO: Write a gem description
+This gem extends ActiveRecord native support for MySQL ENUM data type in the database schema.
+It supports activerecord 4.2 and mysql2 adapter.
+
+## Ancestors
+
+ - https://github.com/iangreenleaf/activerecord_enum
+ - https://github.com/electronick/enum_column
 
 ## Installation
 

@@ -5,14 +5,16 @@ module ActiveRecord
     class AbstractMysqlAdapter
       protected
 
-      def initialize_type_map(m) # :nodoc:
-        super
+      def initialize_type_map_with_enum(m) # :nodoc:
+        initialize_type_map_without_enum(m)
 
         m.register_type(%r(enum)i) do |sql_type|
           limit = sql_type[/^enum\('(.+)'\)/i, 1].split("','").map { |v| v.intern }
           MysqlEnum.new(limit: limit)
         end
       end
+      alias_method :initialize_type_map_without_enum, :initialize_type_map
+      alias_method :initialize_type_map, :initialize_type_map_with_enum
 
       class MysqlEnum < MysqlString
         def type

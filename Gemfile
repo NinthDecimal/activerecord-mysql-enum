@@ -4,5 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rake'
-gem 'mysql2'
 gem 'rspec', '~> 3.5.0'

@@ -1,6 +1,5 @@
 require 'rspec'
 require 'yaml'
-require 'pry'
 require 'activerecord-mysql-enum'
 
 def root

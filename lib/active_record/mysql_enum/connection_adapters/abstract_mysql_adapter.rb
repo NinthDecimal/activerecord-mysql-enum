@@ -5,6 +5,7 @@ module ActiveRecord
     class AbstractMysqlAdapter
       protected
 
+      # alias __initialize_type_map_without_enum initialize_type_map
       def initialize_type_map_with_enum(m) # :nodoc:
         initialize_type_map_without_enum(m)
 

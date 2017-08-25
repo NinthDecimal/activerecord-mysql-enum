@@ -13,7 +13,7 @@ module ActiveRecord
       alias_method :native_database_types, :native_database_types_with_enum
 
       # alias __type_to_sql_without_enum type_to_sql
-      def type_to_sql_with_enum(type, limit=nil, *args)
+      def type_to_sql_with_enum(type, limit: nil, precision: nil, scale: nil, unsigned: nil, **) # :nodoc:
         if type.to_s == "enum"
           "#{type}(#{quoted_comma_list limit})"
         else

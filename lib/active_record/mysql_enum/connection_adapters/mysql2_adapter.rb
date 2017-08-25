@@ -17,7 +17,7 @@ module ActiveRecord
         if type.to_s == "enum"
           "#{type}(#{quoted_comma_list limit})"
         else
-          type_to_sql_without_enum type, limit, *args
+          type_to_sql_without_enum(type, limit: limit, precision: precision, scale: scale, unsigned: unsigned)
         end
       end
       alias_method :type_to_sql_without_enum, :type_to_sql

@@ -6,7 +6,7 @@ module ActiveRecord
       protected
 
       # alias __initialize_type_map_without_enum initialize_type_map
-      def initialize_type_map_with_enum(m) # :nodoc:
+      def initialize_type_map_with_enum(m = type_map) # :nodoc:
         initialize_type_map_without_enum(m)
 
         m.register_type(%r(enum)i) do |sql_type|
